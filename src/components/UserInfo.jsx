@@ -3,7 +3,7 @@ import React from 'react';
 function UserInfo({ setShowUserInfo, input, setInput, getFirstLetter }){
     return (
         <div id='userInfo'>
-            <span>&times;</span>
+            <span onClick={() => setShowUserInfo(false)}>&times;</span>
             <div className="content">
                 <input type="text" placeholder='Enter your name' value={input} onChange={(e) => setInput(e.target.value)} />
                 <button className='cancel' onClick={() => setShowUserInfo(false)}>
