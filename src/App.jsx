@@ -12,13 +12,20 @@ const App = () => {
   const [avatars, setAvatars] = useState([]);
 
   function getFirstLetter() {
-    const firstLetter = input.slice(0, 1).toUpperCase();
+    if (input.trim() !== "") {
+      const firstLetter = input.slice(0, 1).toUpperCase();
 
-    setAvatars([...avatars, { id: Date.now(), avatar: firstLetter }]);
-    setInput("");
-    setShowUserInfo(false);
-    setShowAvatar(true);
+      const randomColor = `hsl(${Math.floor(Math.random() * 360)}, 70%, 50%)`;
+
+      setAvatars([...avatars, { id: Date.now(), avatar: firstLetter, color: randomColor }]);
+      setInput("");
+      setShowUserInfo(false);
+      setShowAvatar(true);
+    } else {
+      alert("Name cannot be empty");
+    }
   }
+
   console.log(avatars);
 
   function handleAvatar(e, avatarId) {

@@ -2,92 +2,133 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  background-color: #f5f6fa;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("./assets/avtar1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  color: white;
 }
 
 #userAvatars {
-  position: relative;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
+
 #userAvatars button {
-  background-color: #4caf50;
-  color: white;
-  font-size: 24px;
-  padding: 8px 14px;
-  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 40px;
+  padding: 16px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+#userAvatars button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.15);
 }
 
 #userInfo {
-  background: white;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 12px;
-  width: 280px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 60px;
-  left: 50%;
-  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 25px;
+  border-radius: 16px;
+  width: 320px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 0.5s ease-in-out;
+  position: relative;
+  color: #fff;
 }
 
 #userInfo span {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
+  color: #fff;
 }
 
 #userInfo .content {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
 }
 
 #userInfo input {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
   outline: none;
+  font-size: 16px;
+  width: 80%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  backdrop-filter: blur(3px);
+}
+
+#userInfo input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 #userInfo button {
-  padding: 8px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: white;
 }
 
 #userInfo .cancel {
-  background-color: #f44336;
-  color: white;
+  background-color: rgba(244, 67, 54, 0.8);
 }
 
 #userInfo .confirm {
-  background-color: #4caf50;
-  color: white;
+  background-color: rgba(76, 175, 80, 0.8);
+}
+
+#userInfo button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 #avatars {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
 }
 
 #avatars p {
@@ -97,25 +138,69 @@ body {
   background-color: #2196f3;
   color: white;
   font-weight: bold;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   position: relative;
-  font-size: 20px;
+  font-size: 22px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+  animation: popIn 0.4s ease-in-out;
 }
 
 #avatars p span:last-child {
   position: absolute;
   top: -8px;
   right: -8px;
-  background-color: #f44336;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
   color: white;
   border-radius: 50%;
   font-size: 14px;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+#avatars p span:last-child:hover {
+  transform: scale(1.15);
+  background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
